@@ -5,13 +5,13 @@ import Error from "../../components/Error";
 import Cards from "./Cards";
 import { Typography } from "@mui/material";
 
-const CardsFeedback = ({ pending, error, cards, onDelete,setCards,like,setLike }) => {
+const CardsFeedback = ({ pending, error, cards, onDelete,setCards,like,setLike,usersCountNumber }) => {
   if (pending) return <Spinner />;
   if (error) return <Error errorMessage={error} />;
   if (cards && !cards.length)
     return <Typography>Oops.. there are no cards at all!</Typography>;
   if (cards && !!cards.length)
-    return <Cards setCards={setCards} cards={cards} onDelete={onDelete} like={like} setLike={setLike}/>;
+    return <Cards usersCountNumber={usersCountNumber} setCards={setCards} cards={cards} onDelete={onDelete} like={like} setLike={setLike}/>;
   return null;
 };
 
@@ -20,6 +20,7 @@ CardsFeedback.propTypes = {
   error: string,
   cards: arrayOf(object),
   onDelete: func.isRequired,
+  usersCountNumber: object,
 };
 
 export default CardsFeedback;

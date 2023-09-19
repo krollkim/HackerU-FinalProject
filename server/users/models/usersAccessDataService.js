@@ -60,19 +60,7 @@ const getUsers = async () => {
   return Promise.resolve("get users not in mongodb");
 };
 
-const getUsersCount = async () => {
-  if (DB === "MONGODB") {
-    try {
-      const users = await User.find({}, { password: 0, __v: 0 }).count();
-      console.log(users);
-      return Promise.resolve(users);
-    } catch (error) {
-      error.status = 404;
-      return Promise.reject(error);
-    }
-  }
-  return Promise.resolve("get users not in mongodb");
-};
+
 
 const getUser = async (userId) => {
   if (DB === "MONGODB") {
@@ -130,7 +118,6 @@ const deleteUser = async (userId) => {
 exports.registerUser = registerUser;
 exports.loginUser = loginUser;
 exports.getUsers = getUsers;
-exports.getUsersCount = getUsersCount;
 exports.getUser = getUser;
 exports.updateUser = updateUser;
 exports.changeUserBusinessStatus = changeUserBusinessStatus;

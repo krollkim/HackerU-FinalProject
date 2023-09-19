@@ -6,14 +6,16 @@ import PageHeader from '../../components/PageHeader';
 
 const CardDetailsPage = () => {
   const { id } = useParams();
-  const { card, handleGetCard } = useCards();
+  const { card, handleGetCard,handleGetCounts,usersCountNumber } = useCards();
   const subtitle = "Here you can find more details about the Movie";
 
   useEffect(() => {
     handleGetCard(id);
+    handleGetCounts()
     // eslint-disable-next-line
   }, [id]);
 
+  console.log(card?.likes?.length);
 
   return (
     <Container maxWidth="lg">
@@ -32,6 +34,7 @@ const CardDetailsPage = () => {
             <CardMedia sx={{ boxShadow: "1px 1px 15px 1px black", borderRadius: "8px", opacity: "0.7", minHeight: "250px", maxHeight: "600px" }} component="img" image={card?.image.url} alt={card?.image.alt} />
 
           </Box>
+          
           <Box flexDirection={"column"} width={{ xs: "100%", sm: "50%" }} ml={{ xs: 0, sm: 5 }} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"}>
             <Typography color={"#FF9900"} sx={{ textShadow: "1px 1px 1px black" }} mb={2} variant={'h3'}> {card?.title}</Typography>
             <Typography sx={{ textShadow: "1px 1px 1px black" }} mb={5} variant='h5'> {card?.subtitle}</Typography>
@@ -40,10 +43,12 @@ const CardDetailsPage = () => {
             <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Created At: {card?.createdAt}</Typography>
             <Divider sx={{height:"20px"}} />
             
+            <Typography>{(card?.likes?.length / usersCountNumber?.usersNumber * 100).toPrecision(3) }</Typography>
             <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Review: {card?.review}</Typography>
          
-            <Box display={'flex'} height={"100%"} alignItems={"flex-end"} >
-            <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Average likes: </Typography>
+            <Box display={'flex'} height={"100%"} alignItems={"flex-end"} position={"relative"}>
+            <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Rating: {(card?.likes?.length / usersCountNumber?.usersNumber * 100).toPrecision(3)}</Typography>
+            <Box left={350} width={4} sx={{backgroundColor:"red"}} position={"absolute"} height={(card?.likes?.length / usersCountNumber?.usersNumber * 100).toPrecision(3)+"px"}></Box>
             </Box>
           </Box>
         </Box>

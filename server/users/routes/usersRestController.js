@@ -88,17 +88,6 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
-router.get("/userCount", async (req, res) => {
-  try {
-   
-    const userCount = await getUsersCount();
-    console.log(userCount);
-    return res.send(userCount)
-
-  } catch (error) {
-    return handleError(res, error.status || 500, error.message);
-  }
-});
 
 router.put("/:id", async (req, res) => {
   try {

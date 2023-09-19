@@ -8,7 +8,7 @@ import { searchContext } from '../../providers/SearchProvider';
 
 const CardsPage = () => {
   const { searchQuery } = useContext(searchContext)
-  const { pending, error, cards, handleGetCards, setCards, handleGetCounts} = useCards();
+  const { pending, error, cards, handleGetCards, setCards,handleGetCounts,usersCountNumber} = useCards();
 
   let filtered = []
   if(searchQuery.length > 0) {
@@ -31,6 +31,7 @@ const CardsPage = () => {
       <PageHeader title="Cards" subtitle="On this page you can find all business cards from all categories" />
 
       <CardsFeedback
+        usersCountNumber={usersCountNumber}
         pending={pending}
         error={error}
         cards={filtered}

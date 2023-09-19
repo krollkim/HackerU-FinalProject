@@ -1,5 +1,6 @@
 const Card = require("./mongodb/Card");
 const { handleBadRequest } = require("../../utils/handleErrors");
+const User = require("../../users/models/mongodb/User");
 
 const DB = process.env.DB || "MONGODB";
 
@@ -110,6 +111,20 @@ const likeCard = async (cardId, userId) => {
   return Promise.resolve("card likeCard not in mongodb");
 };
 
+const getUsersCount = async () => {
+  if (DB === "MONGODB") {
+    try {
+      const users = await User.find({}, { password: 0, __v: 0 }).count();
+      console.log(users);
+      return Promise.resolve(users);
+    } catch (error) {
+      error.status = 404;
+      return Promise.reject(error);
+    }
+  }
+  return Promise.resolve("get users not in mongodb");
+};
+
 const deleteCard = async (cardId, user) => {
   if (DB === "MONGODB") {
     try {
@@ -141,3 +156,4 @@ exports.createCard = createCard;
 exports.updateCard = updateCard;
 exports.likeCard = likeCard;
 exports.deleteCard = deleteCard;
+exports.getUsersCount = getUsersCount

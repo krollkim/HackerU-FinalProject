@@ -24,16 +24,16 @@ const useCards = () => {
   const [pending, setPending] = useState(false);
   const [cardId,setCardId] = useState(null);
   const {setSnack} = useSnack();
+  const [usersCountNumber,setUsersCountNumber] = useState(null);
   const navigate = useNavigate();
 
   useAxios();
 
-  const requestStatus = (pending, error, cards, card) => {
+  const requestStatus = (pending, error, cards, card,) => {
     setPending(pending);
     setError(error);
     setCards(cards);
     setCard(card);
-    
   };
 
   const handleGetCards = async () => {
@@ -133,8 +133,7 @@ const useCards = () => {
     try {
       setPending(true)
       const usersCounts = await userCount()
-      console.log(usersCounts);
-      requestStatus(false,null,usersCounts,null)
+      setUsersCountNumber(usersCounts)
     } catch (error) {
       requestStatus(false, error, null, null);
     }
@@ -145,6 +144,7 @@ const useCards = () => {
     cards,
     pending,
     error,
+    usersCountNumber,
     setCards,
     setCard,
     like,
