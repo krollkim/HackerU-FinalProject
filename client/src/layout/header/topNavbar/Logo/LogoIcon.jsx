@@ -1,0 +1,22 @@
+import React from "react";
+import IconButton from "@mui/material/IconButton";
+import Avatar from "@mui/material/Avatar";
+import NavBarLink from "../../../../routes/NavBarLink";
+import ROUTES from "../../../../routes/routesModel";
+
+const LogoIcon = () => {
+  return (
+    <NavBarLink to={ROUTES.ROOT}>
+    <IconButton
+      sx={{ display: { xs: "inline-flex", md: "none" } }}
+      size="large"
+      edge="start"
+      color="inherit"
+      aria-label="menu">
+      <Avatar alt="Movie logo" src="/images/business-card.png" />
+    </IconButton>
+    </NavBarLink>
+  );
+};
+
+export default LogoIcon;

@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "name": { "first": "regular", "last": "user" },
+      "isBusiness": false,
+      "phone": "050-0000000",
+      "email": "regular@gmail.com",
+      "password": "Aa1234!",
+      "address": {
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "magnive",
+        "houseNumber": "5"
+      },
+      "image": { "url": "", "alt": "" }
+    },
+    {
+      "name": { "first": "business", "last": "user" },
+      "isBusiness": true,
+      "phone": "050-0000000",
+      "email": "business@gmail.com",
+      "password": "Aa1234!",
+      "address": {
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "magnive",
+        "houseNumber": "5"
+      },
+      "image": { "url": "", "alt": "" }
+    },
+    {
+      "name": { "first": "admin", "last": "user" },
+      "isBusiness": true,
+      "isAdmin": true,
+      "phone": "050-0000000",
+      "email": "admin@gmail.com",
+      "password": "Aa1234!",
+      "address": {
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "magnive",
+        "houseNumber": "5"
+      },
+      "image": { "url": "", "alt": "" }
+    }
+  ],
+  "cards": [
+    {
+      "title": "a movie",
+      "subtitle": "this is the subtitle of a movie",
+      "description": "this is the second movie in the database",
+      "review": "blah blah blah",
+      "directedBy": "firstK",
+      "createdAt": "12-12-2021",
+      "web": "https://www.test.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
+      "title": "a movie",
+      "subtitle": "this is the subtitle of a movie",
+      "description": "this is the thired movie in the database",
+      "review": "blah blah blah",
+      "directedBy": "firstK",
+      "createdAt": "12-12-2022",
+      "web": "https://www.test.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
+      "title": "a movie",
+      "subtitle": "this is the subtitle of a movie",
+      "description": "this is the forth movie in the database",
+      "review": "blah blah blah",
+      "directedBy": "firstK",
+      "createdAt": "12-12-2023",
+      "web": "https://www.test.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
+      "title": "a movie",
+      "subtitle": "this is the subtitle of a movie",
+      "description": "this is the fifth movie in the database",
+      "review": "blah blah blah",
+      "directedBy": "firstK",
+      "createdAt": "12-12-2024",
+      "web": "https://www.test.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
+      "title": "a movie",
+      "subtitle": "this is the subtitle of a movie",
+      "description": "this is the six movie in the database",
+      "review": "blah blah blah",
+      "directedBy": "firstK",
+      "createdAt": "12-12-2025",
+      "web": "https://www.test.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
+      "title": "a movie",
+      "subtitle": "this is the subtitle of a movie",
+      "description": "this is the seven movie in the database",
+      "review": "blah blah blah",
+      "directedBy": "firstK",
+      "createdAt": "12-12-2026",
+      "web": "https://www.test.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    }
+  ]
+}
