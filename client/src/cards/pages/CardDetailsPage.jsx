@@ -39,11 +39,10 @@ const CardDetailsPage = () => {
             <Typography color={"#FF9900"} sx={{ textShadow: "1px 1px 1px black" }} mb={2} variant={'h3'}> {card?.title}</Typography>
             <Typography sx={{ textShadow: "1px 1px 1px black" }} mb={5} variant='h5'> {card?.subtitle}</Typography>
             <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Directed By: {card?.directedBy}</Typography>
-            <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>{card?.description}</Typography>
+            <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Description: {card?.description}</Typography>
             <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Created At: {card?.createdAt}</Typography>
             <Divider sx={{height:"20px"}} />
             
-            <Typography>{(card?.likes?.length / usersCountNumber?.usersNumber * 100).toPrecision(3) }</Typography>
             <Typography alignItems={"flex-start"} justifyContent={"flex-start"}>Review: {card?.review}</Typography>
          
             <Box display={'flex'} height={"100%"} alignItems={"flex-end"} position={"relative"}>
