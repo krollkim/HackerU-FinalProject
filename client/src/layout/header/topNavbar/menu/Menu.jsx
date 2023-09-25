@@ -56,12 +56,14 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
         )}
         {user && (
           <>
+          { user && user.isAdmin && (
             <MenuLink
               text="profile"
-              navigateTo={ROUTES.USER_PROFILE}
+              navigateTo={ROUTES.ADMIN}
               onClick={onClose}
               styles={{ color: "#7662c5" }}
             ></MenuLink>
+          )}
             {user &&
               <MenuLink
                 text="My Movies"

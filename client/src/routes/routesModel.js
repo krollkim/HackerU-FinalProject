@@ -10,7 +10,7 @@ const ROUTES = {
     MY_CARDS: "/my-cards",
     LOGO: "cards",
     LOGOICON: "cards",
-    USERPROFILE: "/user-profile",
+    ADMIN: "/admin",
     CREATE_CARD: "/create-card",
     EDIT_CARD: "/edit-card",
     // EDITPROFILE: "/edit-profile",

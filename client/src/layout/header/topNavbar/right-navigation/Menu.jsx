@@ -3,10 +3,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useUser } from "../../../../users/providers/UserProvider";
 
 const Menu = ({ isMenuOpen, anchorEl, onCloseMenu }) => {
-  const user = true;
+  // const user = true;
   // const user = false
+  const { user } = useUser();
 
   return (
     <MuiMenu

@@ -59,7 +59,6 @@ export const likeCard = async (cardId) => {
 export const userCount = async () => {
   try {
     const { data } = await axios.get(`${apiUrl}/cards/userCounts`);
-    console.log(data);
     return data
   } catch (error) {
     return Promise.reject(error.message);

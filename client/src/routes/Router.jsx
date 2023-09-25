@@ -12,6 +12,7 @@ import Cards from "../cards/components/Cards";
 import CreateCardPage from "../cards/pages/CreateCardPage";
 import EditCardPage from "../cards/pages/EditCardPage";
 import MyFavoriteCards from "../cards/pages/MyFavoriteCards";
+import AdminPage from "../users/components/AdminPage";
 
 const Router = () => {
   return (
@@ -28,6 +29,7 @@ const Router = () => {
       <Route path={`${ROUTES.CARD_INFO}/:id/:title/:url`} element={<CardDetailsPage />} />
       <Route path={ROUTES.LOGO} element={<Cards />} />
       <Route path={ROUTES.LOGOICON} element={<Cards />} />
+      <Route path={ROUTES.ADMIN} element={<AdminPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
