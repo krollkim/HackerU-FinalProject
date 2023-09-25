@@ -5,10 +5,9 @@ const normalizeCard = async (rawCard, userId) => {
   const image = {
     url:
       url ||
-      "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2016/06/03/12/42/popcorn-1433327_1280.jpg",
     alt: alt || "Movie card image",
   };
-
   return {
     ...rawCard,
     image,

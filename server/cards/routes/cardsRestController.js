@@ -37,7 +37,6 @@ router.get("/my-cards", auth, async (req, res) => {
 router.get('/userCounts', async (req,res,next) => {
   try {
     const usersNumber = await getUsersCount()
-    console.log(usersNumber)
     return res.json({usersNumber})
   }catch (error) {
     return handleError(res, error.status || 500, error.message);

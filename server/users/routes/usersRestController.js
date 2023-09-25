@@ -11,7 +11,6 @@ const {
   updateUser,
   changeUserBusinessStatus,
   deleteUser,
-  getUsersCount,
 } = require("../models/usersAccessDataService");
 
 const {

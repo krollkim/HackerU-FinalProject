@@ -115,7 +115,6 @@ const getUsersCount = async () => {
   if (DB === "MONGODB") {
     try {
       const users = await User.find({}, { password: 0, __v: 0 }).count();
-      console.log(users);
       return Promise.resolve(users);
     } catch (error) {
       error.status = 404;
