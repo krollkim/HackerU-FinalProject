@@ -12,7 +12,7 @@ import Cards from "../cards/components/Cards";
 import CreateCardPage from "../cards/pages/CreateCardPage";
 import EditCardPage from "../cards/pages/EditCardPage";
 import MyFavoriteCards from "../cards/pages/MyFavoriteCards";
-import AdminPage from "../users/components/AdminPage";
+import AdminPage from "../users/pages/AdminPage";
 
 const Router = () => {
   return (

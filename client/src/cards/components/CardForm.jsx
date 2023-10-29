@@ -83,7 +83,7 @@ const CardForm = ({
         onChange={onInputChange}
         data={data}
         sm={6}
-        required={false}
+        
       />
       <Input
         name="webUrl"
