@@ -10,7 +10,7 @@ const Cards = ({cards,setCards}) => {
   
   return (
   
-    <Grid container spacing={2} pb={2}>
+    <Grid container spacing={2} pb={2} justifyContent={'center'}>
       {cards.map((card) => (
         <Grid item key={card._id} xs={12.5} sm={6.5} md={4.5} lg={3.5}>
           <CardComponent
