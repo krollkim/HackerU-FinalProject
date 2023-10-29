@@ -80,14 +80,15 @@ import CardsFeedback from '../../cards/components/CardsFeedback';
 // import { UserProvider } from '../providers/UserProvider';
 import TableComponents from '../components/TableComponents';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import useUsers from '../hooks/useUsers';
 
 const AdminPage = () => {
 
     const { pending, error, cards, handleGetCards, setCards,handleGetCounts,usersCountNumber} = useCards();
-
-    const views = ['table', 'cards'];
-    const [selectedIndex, setSelectedIndex] = React.useState(0);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const { users } = useUsers();
+    const views = ['table', 'cards', 'users'];
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [anchorEl, setAnchorEl] = useState(null);
   
     const handleClick = () => {
     };
@@ -104,7 +105,7 @@ const AdminPage = () => {
     const handleClose = () => {
       setAnchorEl(null);
     };
-    const [displayMode, setDisplayMode] = useState();
+    const [displayMode, setDisplayMode] = useState('table');
  
     // const { UserContext } = useContext(UserProvider);
     // const {user} = UserProvider(); 
@@ -112,9 +113,9 @@ const AdminPage = () => {
     // if(UserContext.length > 0){
     //     users = user[0];
     // }
-    const { searchQuery } = useContext(searchContext)
-    
-  
+
+    const { searchQuery } = useContext(searchContext);
+
     let filtered = []
     if(searchQuery.length > 0) {
       filtered = cards?.filter(card => (card?.title.match(searchQuery)))
@@ -129,15 +130,27 @@ const AdminPage = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (views !== 'table'){
-        setDisplayMode = 'cards';
-    }
-    else{
-        setDisplayMode = 'table';
-    }
+    useEffect(() => {
+        setDisplayMode(views[selectedIndex]);
+    }, [selectedIndex]);
+
+    // useEffect(() => {
+    //     if (views !== 'table') {
+    //         setDisplayMode('cards');
+    //     } else {
+    //         setDisplayMode('table');
+    //     }
+    // }, [views])
+
+    // if (views !== 'table'){
+    //     setDisplayMode('cards');
+    // }
+    // else{
+    //     setDisplayMode('table');
+    // }
 
     return (
-        <Container>
+     <Container>
         <PageHeader title="admin section" subtitle="On this page you can find all users and cards from all categories" />
 
         <Box justifyContent={'center'} display={'flex'}>
@@ -164,20 +177,20 @@ const AdminPage = () => {
       
         <Box container alignItems="center" justifyContent="space-between" flexDirection="row">
 
-            {displayMode === 'table' && (
-                <TableComponents cards={filtered}/>
+            {displayMode === 'table' && <TableComponents cards={filtered} />}
+
+            {displayMode === 'cards' && (
+                <CardsFeedback 
+                usersCountNumber={usersCountNumber}
+                pending={pending}
+                error={error}
+                cards={filtered}
+                setCards={setCards}/>
             )}
 
-    {displayMode === 'cards' && (
-          <CardsFeedback 
-          usersCountNumber={usersCountNumber}
-          pending={pending}
-          error={error}
-          cards={filtered}
-          setCards={setCards}/>
-    )}
-         </Box>
-        </Container>
+            
+        </Box>
+     </Container>
     )
 }
 
