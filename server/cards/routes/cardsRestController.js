@@ -15,6 +15,7 @@ const {
 const validateCard = require("../validations/cardValidationService");
 const router = express.Router();
 const { useParams } = require("react-router-dom");
+
 router.get("/", async (req, res) => {
   try {
     const cards = await getCards();

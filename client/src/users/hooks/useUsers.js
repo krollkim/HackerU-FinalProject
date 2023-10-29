@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useUser} from '../providers/UserProvider';
 import useAxios from '../../hooks/useAxios';
-import {login, signUp} from '../services/usersApiService';
+import {getUsers, login, signUp} from '../services/usersApiService';
 import {
   getUser,
   removeToken,
@@ -87,7 +87,26 @@ const useUsers = () => {
     [handleLogin, requestStatus]
   );
 
-  return {pending, error, user, users, handleLogin, handleLogout, handleSignup};
+  const handleGetUsers = async () => {
+    try {
+      setPending(true);
+      const users = await getUsers();
+      requestStatus(false, null, users, null);
+    } catch (error) {
+      requestStatus(false, error, null, null);
+    }
+  };
+
+  return {
+    pending, 
+    error, 
+    user, 
+    users, 
+    handleLogin, 
+    handleLogout, 
+    handleSignup, 
+    handleGetUsers
+  };
 };
 
 export default useUsers;
