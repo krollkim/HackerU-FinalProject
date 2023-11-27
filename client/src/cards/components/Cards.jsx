@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import CardComponent from "./card/Card";
 import { arrayOf } from "prop-types";
@@ -9,7 +9,7 @@ const Cards = ({cards,setCards}) => {
   const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);
   
   return (
-  
+  <Box sx={{pb:8}}>
     <Grid container spacing={2} pb={2} justifyContent={'center'}>
       {cards.map((card) => (
         <Grid item key={card._id} xs={12.5} sm={6.5} md={4.5} lg={3.5}>
@@ -22,6 +22,7 @@ const Cards = ({cards,setCards}) => {
         </Grid>
       ))}
     </Grid>
+  </Box>
   );
 };
 
