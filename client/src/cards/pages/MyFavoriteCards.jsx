@@ -10,7 +10,7 @@ import { searchContext } from "../../providers/SearchProvider";
 
 const MyFavoriteCards = () => {
   const { user } = useUser();
-  const { pending, error, cards, handleGetFavCards } = useCards();
+  const { pending, error, cards, handleGetFavCards, setCards } = useCards();
   const navigate = useNavigate();
   const { searchQuery } = useContext(searchContext)
 
@@ -42,8 +42,8 @@ const MyFavoriteCards = () => {
       <CardsFeedback
         pending={pending}
         error={error}
-        cards={filtered}
-        onDelete={() => {}}       
+        cards={filtered}    
+        setCards={setCards}
       />
     </Container>
   );

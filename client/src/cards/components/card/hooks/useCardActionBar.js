@@ -16,6 +16,7 @@ const useCardActionBar = (handleDeleteCard,handleLikeCard,setCards,cards) => {
       const onLike = async (cardId) => {
         try {
           await handleLikeCard(cardId)
+          
           cards.map(card => {
     
             if (card._id === cardId) {
