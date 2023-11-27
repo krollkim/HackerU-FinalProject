@@ -1,14 +1,14 @@
 import { Container } from '@mui/system';
 import React, { useContext, useEffect } from 'react'
 import PageHeader from '../../components/PageHeader';
-import CardsFeedback from '../components/CardsFeedback';
 import useCards from '../hooks/useCards';
 import { searchContext } from '../../providers/SearchProvider';
+import ViewMode from '../../users/pages/ViewMode';
 
 
 const CardsPage = () => {
   const { searchQuery } = useContext(searchContext)
-  const { pending, error, cards, handleGetCards, setCards,handleGetCounts,usersCountNumber} = useCards();
+  const { pending, error, cards, handleGetCards, setCards, handleGetCounts, usersCountNumber } = useCards();
 
   let filtered = []
   if(searchQuery.length > 0) {
@@ -24,20 +24,10 @@ const CardsPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onDeleteCard = () => { };
-
   return (
     <Container>
       <PageHeader title="Cards" subtitle="On this page you can find all business cards from all categories" />
-
-      <CardsFeedback
-        usersCountNumber={usersCountNumber}
-        pending={pending}
-        error={error}
-        cards={filtered}
-        onDelete={onDeleteCard}
-        setCards={setCards}
-      />
+      <ViewMode/>
     </Container>
   )
 }

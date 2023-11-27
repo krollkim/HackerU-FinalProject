@@ -58,7 +58,7 @@ const EditCardPage = () => {
   }, [])
 
   if (!user || !user.isBusiness) return <Navigate replace to={ROUTES.CARDS} />;
-
+  
   return (
     <Container
       sx={{
