@@ -6,15 +6,11 @@ import Menu from "@mui/material/Menu";
 import { Box } from "@mui/material";
 import MenuLink from "../../../../routes/MenuLink";
 import ROUTES from "../../../../routes/routesModel";
-// import IconButton from "@mui/material/IconButton";
-// import DarkModeIcon from "@mui/icons-material/DarkMode";
-// import LightModeIcon from "@mui/icons-material/LightMode";
-// import { useTheme } from "../../../../providers/ThemeProvider";
+
 
 const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
   const { user } = useUser();
   const { handleLogout } = useUsers();
-  // const { isDark, toggleDarkMode } = useTheme();
 
 
   const onLogout = () => {
@@ -80,11 +76,6 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
                 styles={{ color: "#7662c5" }}
               ></MenuLink>
             }
-            {/* {user &&
-               <IconButton sx={{ marginLeft: 1 }} onClick={toggleDarkMode}>
-               {isDark ? <LightModeIcon /> : <DarkModeIcon />}
-             </IconButton>
-            } */}
             <MenuLink
               text="logout"
               navigateTo={ROUTES.CARDS}

@@ -16,8 +16,8 @@ const Error = ({ errorMessage }) => {
           <CardMedia
             component="img"
             maxWidth="100"
-            image="/client/public/assets/images/broken-robot.png"
-            alt="error broken-robot img"
+            image="/client/public/images/broken-robot.png"
+            alt="error, broken-robot image"
           ></CardMedia>
         </Grid>
       </Grid>

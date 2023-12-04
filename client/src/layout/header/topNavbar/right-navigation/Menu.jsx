@@ -6,8 +6,7 @@ import Button from "@mui/material/Button";
 import { useUser } from "../../../../users/providers/UserProvider";
 
 const Menu = ({ isMenuOpen, anchorEl, onCloseMenu }) => {
-  // const user = true;
-  // const user = false
+  
   const { user } = useUser();
 
   return (

@@ -3,12 +3,42 @@ import {
   Typography,
   Button,
   Link,
-  TextField, } from '@mui/material'
-import { Container } from '@mui/system'
-import React from 'react'
+  TextField,
+  Modal,
+  Box,
+  IconButton, } from '@mui/material'
+  import GitHubIcon from '@mui/icons-material/GitHub';
+  import RecentActorsIcon from '@mui/icons-material/RecentActors';
+import { Container } from '@mui/material'
+import React, { useState } from 'react'
 import PageHeader from '../components/PageHeader'
+import { useTheme } from '../providers/ThemeProvider';
 
 const AboutPage = () => {
+  const [open, setOpen] = useState(false);
+  const { isDark } = useTheme();
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  }; 
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 2,
+    pb: 2,
+    borderRadius: 4
+  };
+
   return (
     <>
     <Container maxWidth="lg">
@@ -80,10 +110,34 @@ const AboutPage = () => {
       </Typography>
      <Container sx={{mb: 5}}>
       <Typography>
-      <Typography variant="h4">Contact</Typography>
-      
-      If you have any questions or feedback, please contact us at kimkroll2000@gmail.com <br/>
-      Thank you for using our website!
+      <Typography variant="h4" sx={{pb: 1}}>Contact</Typography>
+        For any questions or feedback, click the icon:
+      <IconButton onClick={handleOpen} sx={{ width: 10, height: 10, pl: 3}}>
+      <RecentActorsIcon />
+      </IconButton>
+        <Modal
+          open={open}
+          onClose={handleClose}>
+          <Box sx={{ ...style, width: 400, 
+            color: isDark ? "white" : "black", 
+            backgroundColor: isDark ? "#333333" : "#e3f2fd", display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Typography sx={{pb:1, fontWeight: 'bold'}}> 
+              kimkroll2000@gmail.com | 0525890252
+            </Typography>
+            <IconButton 
+            href='https://github.com/krollkim' 
+            target="_blank">
+              <GitHubIcon sx={{
+                height: '30px', 
+                width: '30px'
+                }}/>
+              </IconButton>
+          </Box>
+        </Modal>
       </Typography>
      </Container>
     </Container>
