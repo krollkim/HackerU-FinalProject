@@ -26,7 +26,7 @@ const CardsPage = () => {
 
   return (
     <Container>
-      <PageHeader title="Cards" subtitle="On this page you can find all business cards from all categories" />
+      <PageHeader title="Movies" subtitle="On this page you can find all movies from all categories" />
       <ViewMode/>
     </Container>
   )

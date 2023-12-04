@@ -15,16 +15,13 @@ const useCardActionBar = (handleDeleteCard,handleLikeCard,setCards,cards) => {
 
       const onLike = async (cardId) => {
         try {
-          await handleLikeCard(cardId)
+          await handleLikeCard(cardId);
           
-          cards.map(card => {
-    
-            if (card._id === cardId) {
-              localLike ? setLocalLike(false) : setLocalLike(true)
-              return card
-            }
-            return card
-          })
+          setLocalLike((prevLocalLike) => !prevLocalLike);
+      
+          if (localLike) {
+            setCards((prevCards) => prevCards.filter((card) => card._id !== cardId));
+          }
         } catch (err) {
           console.log(err);
         }

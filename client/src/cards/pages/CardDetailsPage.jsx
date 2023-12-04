@@ -15,7 +15,6 @@ const CardDetailsPage = () => {
     // eslint-disable-next-line
   }, [id]);
 
-  console.log(card?.likes?.length);
 
   return (
     <Container maxWidth="lg">

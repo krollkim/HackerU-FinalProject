@@ -38,7 +38,6 @@ export const createCard = async card => {
 };
 
 export const editCard = async (card,cardId) => {
-  console.log(card);
   try {
     const { data } = await axios.put(`${apiUrl}/cards/${cardId}`, card);
     return data;

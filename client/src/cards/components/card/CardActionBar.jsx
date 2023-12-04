@@ -18,7 +18,7 @@ const CardActionBar = ({ cardId, userId, card, setLike, cards, setCards }) => {
   const { user } = useUser();
   const navigate = useNavigate();
   const { handleLikeCard, handleDeleteCard } = useCards()
-  const { onDelete, onLike,localLike,setLocalLike } = useCardActionBar(handleDeleteCard,handleLikeCard,setCards,cards)
+  const { onDelete, onLike, localLike, setLocalLike } = useCardActionBar(handleDeleteCard,handleLikeCard,setCards,cards)
 
   useEffect(() => {
     const isLiked = async () => {

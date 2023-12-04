@@ -48,7 +48,6 @@ const ViewMode = () => {
         setDisplayMode(views[selectedIndex]);
     }, [selectedIndex]);
 
-    console.log({filtered});
     return (
      <Container>
 

@@ -30,8 +30,8 @@ const MyCardsPage = () => {
   return (
     <Container sx={{ position: "relative", minHeight: "90vh" }}>
       <PageHeader
-        title="My Cards Page"
-        subtitle="Here you can manage all your cards"
+        title="My Movies Page"
+        subtitle="Here you can manage all your movie cards"
       />
       <Fab
         onClick={() => navigate(ROUTES.CREATE_CARD)}
