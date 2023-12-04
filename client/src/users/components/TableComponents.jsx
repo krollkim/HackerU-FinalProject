@@ -11,8 +11,9 @@ const TableComponents = ({ cards, cardId, setCards, handleLikeCard }) => {
 
   const filteredCards = cards || [];
   const navigate = useNavigate();
-  const { handleDeleteCard } = useCards(cardId)
-  const { onDelete } = useCardActionBar(handleDeleteCard, handleLikeCard, setCards, cards) 
+  const { handleDeleteCard } = useCards(cardId);
+  const { onDelete } = useCardActionBar(handleDeleteCard, handleLikeCard, setCards, cards);
+
   return (
   <Box sx={{pb:8}}>
     <Box sx={{border: 1, borderRadius: 5, padding: 3, marginTop: 5}}>
