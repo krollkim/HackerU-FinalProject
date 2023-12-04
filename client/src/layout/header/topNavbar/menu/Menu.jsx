@@ -54,20 +54,20 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
           <>
           { user && user.isAdmin && (
             <MenuLink
-              text="profile"
+              text="Admin"
               navigateTo={ROUTES.ADMIN}
               onClick={onClose}
               styles={{ color: "#7662c5" }}
             ></MenuLink>
           )}
-            {user &&
+            {user && user.isBusiness && (
               <MenuLink
                 text="My Movies"
                 navigateTo={ROUTES.MY_CARDS}
                 onClick={onClose}
                 styles={{ color: "#7662c5" }}
               ></MenuLink>
-            }
+            )}
             {user &&
               <MenuLink
                 text="Favorites"

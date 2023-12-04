@@ -18,8 +18,11 @@ const LeftNavBar = () => {
         {user && user.isBusiness && (
           <NavItem label="My Movies" to={ROUTES.MY_CARDS} />
         )}
-        {user && user.isBusiness && (
+        {user && (
           <NavItem label="Favorites" to={ROUTES.FAV_CARDS} />
+        )}
+        {user && user.isAdmin && (
+          <NavItem label="Admin" to={ROUTES.ADMIN} />
         )}
       </Box>
     </Box>
